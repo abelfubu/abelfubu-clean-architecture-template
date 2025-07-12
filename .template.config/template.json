@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "abelfubu",
+  "classifications": [
+    "Clean Architecture",
+    "ASP.NET",
+    "ASP.NET Core",
+    "Web API",
+    "Project Template"
+  ],
+  "name": "Clean Architecture Template",
+  "shortName": "abelfubu-clean-arch",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "identity": "Abelfubu.CleanArchitecture.Template",
+  "description": ".NET 9 Clean Architecture Template",
+  "sourceName": "CleanArchitecture",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".github/**",
+        ".git/**",
+        ".gitignore",
+        ".template.config/**/*",
+        "Abelfubu.CleanArchitecture.Template.nuspec"
+      ]
+    }
+  ],
+  "symbols": {
+    "WithClientApplication": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
+  }
+}
