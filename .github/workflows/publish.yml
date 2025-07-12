@@ -17,7 +17,7 @@ jobs:
           nuget-version: "5.x"
 
       - name: Package
-        run: nuget pack Amantinband.CleanArchitecture.Template.nuspec -OutputDirectory artifacts -NoDefaultExcludes
+        run: nuget pack Abelfubu.CleanArchitecture.Template.nuspec -OutputDirectory artifacts -NoDefaultExcludes
 
       - name: Publish
         run: nuget push .\artifacts\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate
