@@ -14,7 +14,7 @@
 </div>
 
 ```shell
-dotnet new install Amantinband.CleanArchitecture.Template
+dotnet new install Abelfubu.CleanArchitecture.Template
 
 dotnet new clean-arch -o CleanArchitecture
 ```
@@ -172,21 +172,24 @@ Content-Type: application/json
 >
 > ```json
 > {
->    "rest-client.environmentVariables": {
->        "$shared": { // these will be shared across all http files, regardless of the environment
->            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTGlvciIsImZhbWlseV9uYW1lIjoiRGFnYW4iLCJlbWFpbCI6Imxpb3JAZGFnYW4uY29tIiwiaWQiOiJhYWU5M2JmNS05ZTNjLTQ3YjMtYWFjZS0zMDM0NjUzYjZiYjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsInBlcm1pc3Npb25zIjpbInNldDpyZW1pbmRlciIsImdldDpyZW1pbmRlciIsImRpc21pc3M6cmVtaW5kZXIiLCJkZWxldGU6cmVtaW5kZXIiLCJjcmVhdGU6c3Vic2NyaXB0aW9uIiwiZGVsZXRlOnN1YnNjcmlwdGlvbiIsImdldDpzdWJzY3JpcHRpb24iXSwiZXhwIjoxNzA0MTM0MTIzLCJpc3MiOiJSZW1pbmRlclNlcnZpY2UiLCJhdWQiOiJSZW1pbmRlclNlcnZpY2UifQ.wyvn9cq3ohp-JPTmbBd3G1cAU1A6COpiQd3C_e_Ng5s",
->            "userId": "aae93bf5-9e3c-47b3-aace-3034653b6bb2",
->            "subscriptionId": "c8ee11f0-d4bb-4b43-a448-d511924b520e",
->            "reminderId": "08233bb1-ce29-49e2-b346-5f8b7cf61593"
->        },
->        "dev": { // when the environment is set to dev, these values will be used
->            "host": "http://localhost:5001",
->        },
->        "prod": { // when the environment is set to prod, these values will be used
->            "host": "http://your-prod-endpoint.com",
->        }
->    }
->}
+>   "rest-client.environmentVariables": {
+>     "$shared": {
+>       // these will be shared across all http files, regardless of the environment
+>       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTGlvciIsImZhbWlseV9uYW1lIjoiRGFnYW4iLCJlbWFpbCI6Imxpb3JAZGFnYW4uY29tIiwiaWQiOiJhYWU5M2JmNS05ZTNjLTQ3YjMtYWFjZS0zMDM0NjUzYjZiYjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsInBlcm1pc3Npb25zIjpbInNldDpyZW1pbmRlciIsImdldDpyZW1pbmRlciIsImRpc21pc3M6cmVtaW5kZXIiLCJkZWxldGU6cmVtaW5kZXIiLCJjcmVhdGU6c3Vic2NyaXB0aW9uIiwiZGVsZXRlOnN1YnNjcmlwdGlvbiIsImdldDpzdWJzY3JpcHRpb24iXSwiZXhwIjoxNzA0MTM0MTIzLCJpc3MiOiJSZW1pbmRlclNlcnZpY2UiLCJhdWQiOiJSZW1pbmRlclNlcnZpY2UifQ.wyvn9cq3ohp-JPTmbBd3G1cAU1A6COpiQd3C_e_Ng5s",
+>       "userId": "aae93bf5-9e3c-47b3-aace-3034653b6bb2",
+>       "subscriptionId": "c8ee11f0-d4bb-4b43-a448-d511924b520e",
+>       "reminderId": "08233bb1-ce29-49e2-b346-5f8b7cf61593"
+>     },
+>     "dev": {
+>       // when the environment is set to dev, these values will be used
+>       "host": "http://localhost:5001"
+>     },
+>     "prod": {
+>       // when the environment is set to prod, these values will be used
+>       "host": "http://your-prod-endpoint.com"
+>     }
+>   }
+> }
 > ```
 >
 > #### Options 2 - Defining the variables in the http file itself
@@ -212,7 +215,6 @@ Content-Type: application/json
 > ```yaml
 > POST http://localhost:5001/tokens/generate
 > ```
->
 
 ## Create a subscription
 
@@ -251,7 +253,7 @@ You can use the [this](https://www.figma.com/community/file/1334042945934670571/
 
 # Authorization 🔐
 
-This project puts an emphasis on complex authorization scenarios and supports *role-based*, *permission-based* and *policy-based* authorization.
+This project puts an emphasis on complex authorization scenarios and supports _role-based_, _permission-based_ and _policy-based_ authorization.
 
 ## Authorization Types
 
@@ -331,7 +333,7 @@ For example:
 public record ListRemindersQuery(Guid UserId, Guid SubscriptionId, Guid ReminderId) : IAuthorizeableRequest<ErrorOr<Reminder>>;
 ```
 
-Will only allow users with the `get:reminder` and  `list:reminder` permission, and who pass the `SelfOrAdmin` policy, and who have the `ReminderManager` role to list reminders.
+Will only allow users with the `get:reminder` and `list:reminder` permission, and who pass the `SelfOrAdmin` policy, and who have the `ReminderManager` role to list reminders.
 
 Another option, is specifying the `Authorize` attribute multiple times:
 
@@ -425,34 +427,37 @@ Then, in an eventual consistency manner, the system will update all the relevant
 1. Each invariant is encapsulated in a single domain object. This allows performing changes by updating a single domain object in a single transaction.
 1. If `domain object B` needs to react to changes in `domain object A`, a [Domain Event](src/CleanArchitecture.Domain/Common/IDomainEvent.cs) is added to `domain object A` alongside the changes.
 1. Upon persisting `domain object A` changes to the database, the domain events are [extracted and added to a queue](src/CleanArchitecture.Infrastructure/Common/Persistence/AppDbContext.cs) for offline processing:
-    ```csharp
-    private void AddDomainEventsToOfflineProcessingQueue(List<IDomainEvent> domainEvents)
-    {
-        Queue<IDomainEvent> domainEventsQueue = new();
-        domainEvents.ForEach(domainEventsQueue.Enqueue);
 
-        _httpContextAccessor.HttpContext.Items["DomainEvents"] = domainEventsQueue;
-    }
-    ```
+   ```csharp
+   private void AddDomainEventsToOfflineProcessingQueue(List<IDomainEvent> domainEvents)
+   {
+       Queue<IDomainEvent> domainEventsQueue = new();
+       domainEvents.ForEach(domainEventsQueue.Enqueue);
+
+       _httpContextAccessor.HttpContext.Items["DomainEvents"] = domainEventsQueue;
+   }
+   ```
+
 1. After the user receives a response, the [EventualConsistencyMiddleware](src/CleanArchitecture.Infrastructure/Common/Middleware/EventualConsistencyMiddleware.cs) is invoked and processes the domain events:
-    ```csharp
-    public async Task InvokeAsync(HttpContext context, IEventualConsistencyProcessor eventualConsistencyProcessor)
-    {
-        context.Response.OnCompleted(async () =>
-        {
-            if (context.Items.TryGetValue("DomainEvents", out var value) ||
-                value is not Queue<IDomainEvent> domainEvents)
-            {
-                return;
-            }
 
-            while (domainEvents.TryDequeue(out var nextEvent))
-            {
-                await publisher.Publish(nextEvent);
-            }
-        });
-    }
-    ```
+   ```csharp
+   public async Task InvokeAsync(HttpContext context, IEventualConsistencyProcessor eventualConsistencyProcessor)
+   {
+       context.Response.OnCompleted(async () =>
+       {
+           if (context.Items.TryGetValue("DomainEvents", out var value) ||
+               value is not Queue<IDomainEvent> domainEvents)
+           {
+               return;
+           }
+
+           while (domainEvents.TryDequeue(out var nextEvent))
+           {
+               await publisher.Publish(nextEvent);
+           }
+       });
+   }
+   ```
 
 > Note: the code snippets above are a simplified version of the actual implementation.
 
